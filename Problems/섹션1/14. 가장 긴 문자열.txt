@@ -5,7 +5,7 @@
     </head>
     <body>
         <script>
-            function solution(s){  
+            function solution(s){
                 let answer="", max=Number.MIN_SAFE_INTEGER;
                 for(let x of s){
                     if(x.length>max){
