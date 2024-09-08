@@ -24,7 +24,28 @@ beautiful
 */
 
 function solution(s) {
+  let answer = "";
+  let max = Number.MIN_SAFE_INTEGER;
 
+  for (let x of s) {
+    if (x.length > max) {
+      max = x.length;
+      answer = x;
+    }
+  }
+  return answer;
 }
+
+// function solution(s) {
+//   const length = s[0].length;
+//   let result = s[0];
+
+//   for (let i = 1; i < s.length; i++) {
+//     if (length < s[i].length) result = s[i];
+//   }
+
+//   return result;
+// }
+
 let str = ["teacher", "time", "student", "beautiful", "good"];
 console.log(solution(str));

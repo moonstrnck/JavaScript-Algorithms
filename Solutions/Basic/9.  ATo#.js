@@ -17,11 +17,36 @@ B#N#N#
 
 */
 
-function solution(s) {
-  let answer = "";
 
-  return answer;
+function solution(str) {
+  let result = str;
+  result = result.replace(/A/g, '#');
+
+  return result;
 }
+
+// function solution(str) {
+//   let result = "";
+//   for (const s of str) {
+//     if (s === 'A') {
+//       result += '#';
+//     } else {
+//       result += s;
+//     }
+//   }
+
+//   return result;
+// }
+
+// function solution(s) {
+//   const result = [...s];
+
+//   for (let i = 0; i < result.length; i++) {
+//     if (result[i] === 'A') result[i] = '#';
+//   }
+
+//   return result.join('');
+// }
 
 const str = "BANANA";
 console.log(solution(str));

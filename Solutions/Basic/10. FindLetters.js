@@ -20,8 +20,20 @@ R
 */
 
 function solution(s, t) {
+  const result = s.split(t).length;
 
+  return result - 1;
 }
+
+// function solution(s, t) {
+//   let count = 0;
+  
+//   for (let i = 0; i < s.length; i++) {
+//     if (s[i] === t) count++;
+//   }
+
+//   return count;
+// }
 
 let str = "COMPUTERPROGRAMMING";
 console.log(solution(str, 'R'));

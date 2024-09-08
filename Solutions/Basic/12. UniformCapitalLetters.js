@@ -19,7 +19,7 @@ ITISTIMETOSTUDY
 */
 
 function solution(s) {
-
+  return s.toUpperCase();
 }
 
 let str = "ItisTimeToStudy";

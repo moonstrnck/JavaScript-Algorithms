@@ -15,20 +15,37 @@
   5
 */
 
+
 function solution(a, b, c) {
   let answer;
 
-  if (a === b === c) {
+  if ( a < b ) {
     answer = a;
-  } else if (a < b && a < c) {
-    answer = a;
-  } else if (b < a && b < c) {
+  } else {
     answer = b;
-  } else if (c < a && c < b) {
+  }
+
+  if ( c < answer ) {
     answer = c;
   }
 
   return answer;
 }
+
+// function solution(a, b, c) {
+//   let answer;
+
+//   if (a === b === c) {
+//     answer = a;
+//   } else if (a < b && a < c) {
+//     answer = a;
+//   } else if (b < a && b < c) {
+//     answer = b;
+//   } else if (c < a && c < b) {
+//     answer = c;
+//   }
+
+//   return answer;
+// }
 
 console.log(solution(2, 5, 1));

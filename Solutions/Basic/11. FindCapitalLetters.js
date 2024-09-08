@@ -18,8 +18,36 @@ KoreaTimeGood
 */
 
 function solution(s) {
+  let count = 0;
 
+  for (const x of s) {
+    const num = x.charCodeAt();
+    if (num >= 65 && num <= 90) count++;
+  }
+
+  return count;
 }
+
+
+// function solution(s) {
+//   let count = 0;
+
+//   for (const x of s) {
+//     if (x === x.toUpperCase()) count++;
+//   }
+
+//   return count;
+// }
+
+// function solution(s) {
+//   let count = 0;
+
+//   for (let i = 0; i < s.length; i++) {
+//     if (s[i] === s[i].toUpperCase()) count++;
+//   }
+
+//   return count;
+// }
 
 let str = "KoreaTimeGood";
 console.log(solution(str));
