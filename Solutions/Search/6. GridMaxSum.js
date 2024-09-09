@@ -30,7 +30,52 @@ N*N의 격자판이 주어지면 각 행의 합, 각 열의 합, 두 대각선�
 */
 
 function solution(arr) {
+  const result = [];
+  let leftDiagonal = 0;
+  let rightDiagonal = 0;
+  let k = arr.length - 1;
 
+  for (let i = 0; i < arr.length; i++) {
+    let row = 0;
+    let column = 0;
+
+    leftDiagonal += arr[i][i];
+    rightDiagonal += arr[i][k];
+
+    for (let j = 0; j < arr.length; j++) {
+      row += arr[i][j];
+      column += arr[j][i];
+    }
+    result.push(row);
+    result.push(column);
+    k--;
+  }
+
+  result.push(leftDiagonal);
+  result.push(rightDiagonal);
+
+  return Math.max(...result);
+}
+
+function solution(arr) {
+  let answer = Number.MIN_SAFE_INTEGER;
+  let n = arr.length;
+  let sum1 = sum2 = 0;
+  for (let i = 0; i < n; i++) {
+    sum1 = sum2 = 0;
+    for (let j = 0; j < n; j++) {
+      sum1 += arr[i][j];
+      sum2 += arr[j][i];
+    }
+    answer = Math.max(answer, sum1, sum2);
+  }
+  sum1 = sum2 = 0;
+  for (let i = 0; i < n; i++) {
+    sum1 += arr[i][i];
+    sum2 += arr[i][n - i - 1];
+  }
+  answer = Math.max(answer, sum1, sum2);
+  return answer;
 }
 
 let arr = [[10, 13, 10, 12, 15],

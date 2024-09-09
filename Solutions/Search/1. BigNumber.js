@@ -18,7 +18,9 @@ N(1<=N<=100)개의 정수를 입력받아, 자신의 바로 앞 수보다 큰 �
 */
 
 function solution(arr) {
+  const n = arr.length;
 
+  return arr.filter((number, index) => n <= number);
 }
 
 let arr = [7, 3, 9, 5, 6, 12];

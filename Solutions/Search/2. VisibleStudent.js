@@ -16,8 +16,19 @@
 5
 
 */
-function solution(arr) {
 
+function solution(arr) {
+  let max = arr[0];
+  let count = 1;
+
+  for (let i = 1; i < arr.length; i++) {
+    if (max < arr[i]) {
+      count++;
+      max = arr[i];
+    }
+  }
+
+  return count;
 }
 
 let arr = [130, 135, 148, 140, 145, 150, 150, 153];
