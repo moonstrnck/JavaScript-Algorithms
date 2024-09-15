@@ -19,8 +19,28 @@ YES
 */
 
 function solution(s) {
+  s = s.toLowerCase();
+  let len = s.length;
 
+  for (let i = 0; i < Math.floor(len / 2); i++) {
+    if (s[i] !== s[len - i - 1]) return "NO";
+  }
+  return "YES";
 }
+
+// function solution(s) {
+//   const string = s.toLowerCase();
+//   const end = s.length - 1;
+//   const mid = Math.trunc(s.length / 2);
+
+//   for (let i = 0, j = end; i < mid, j >= mid; i++, j--) {
+//     if (string[i] !== string[j]) {
+//       return 'NO';
+//     }
+//   }
+
+//   return 'YES';
+// }
 
 let str = "goooG";
 console.log(solution(str));

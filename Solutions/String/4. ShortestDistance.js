@@ -18,8 +18,66 @@ teachermode  e
 */
 
 function solution(s, t) {
+  const result = [];
+  let dist = s.length;
 
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === t) {
+      dist = 0;
+    } else {
+      dist++;
+    }
+
+    result.push(dist);
+  }
+
+  dist = s.length;
+  for (let j = s.length - 1; j >= 0; j--) {
+    if (s[j] === t) {
+      dist = 0;
+    } else {
+      dist++;
+      result[j] = Math.min(result[j], dist);
+    }
+  }
+
+  return result;
 }
+
+// function solution(s, t) {
+//   let leftDist = s.length;
+//   let rightDist = s.length;
+//   const left = [];
+//   const right = [];
+
+//   for (let i = 0, j = s.length - 1; i < s.length, j >= 0; i++, j--) {
+//     if (s[i] === t) {
+//       leftDist = 0;
+//     } else {
+//       leftDist++;
+//     }
+
+//     if (s[j] === t) {
+//       rightDist = 0;
+//     } else {
+//       rightDist++;
+//     }
+
+//     left[i] = leftDist;
+//     right[j] = rightDist;
+//   }
+
+//   const result = [];
+//   for (let i = 0; i < left.length; i++) {
+//     if (left[i] <= right[i]) {
+//       result.push(left[i]);
+//     } else {
+//       result.push(right[i]);
+//     }
+//   }
+
+//   return result;
+// }
 
 let str = "teachermode";
 console.log(solution(str, 'e'));

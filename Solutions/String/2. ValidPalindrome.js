@@ -1,6 +1,6 @@
 /*
 유효한 팰린드롬
-앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열을 팰린드롬이라고  합니다.
+앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열을 팰린드롬이라고 합니다.
 문자열이 입력되면 해당 문자열이 팰린드롬이면 "YES", 아니면 “NO"를 출력하는 프로그램을
 작성하세요.
 단 회문을 검사할 때 알파벳만 가지고 회문을  사하며, 대소문자를 구분하지 않습니다.
@@ -19,9 +19,33 @@ found7, time: study; Yduts; emit, 7Dnuof
 YES
 */
 
-function solution(s) {
-
+function solution(s){
+  let answer="YES";
+  s=s.toLowerCase().replace(/[^a-z]/g, '');
+  if(s.split('').reverse().join('')!==s) return "NO";
+  return answer;
 }
+
+// function solution(s) {
+//   let string = "";
+
+//   for (const char of s) {
+//     if ((char.charCodeAt() >= 65 && char.charCodeAt() <= 90) || char.charCodeAt() >= 97 && char.charCodeAt() <= 122) {
+//       string += char.toLowerCase();
+//     }
+//   }
+
+//   const end = string.length - 1;
+//   const mid = Math.trunc(string.length / 2);
+
+//   for (let i = 0, j = end; i < mid, j >= mid; i++, j--) {
+//     if (string[i] !== string[j]) {
+//       return 'NO';
+//     }
+//   }
+
+//   return 'YES';
+// }
 
 let str = "found7, time: study; Yduts; emit, 7Dnuof";
 console.log(solution(str));
