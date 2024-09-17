@@ -21,11 +21,25 @@ N개의  자연수가  입력되면  각  자연수를  뒤집은  후  그  뒤
 */
 
 function isPrime(num) {
+  if (num === 1) return false;
 
+  for (let i = 2; i < Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+
+  return true;
 }
 function solution(arr) {
+  const reverse = arr.map((num) => {
+    const str = num + '';
+    const reversedNum = parseInt([...str].reverse().join(''));
 
+    return reversedNum;
+  })
+
+  return reverse.filter((num) => isPrime(num));
 }
+
 
 let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
 console.log(solution(arr));
