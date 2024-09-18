@@ -20,22 +20,61 @@ N개의  자연수가  입력되면  각  자연수의  자릿수의  합을  �
 */
 
 function solution(n, arr) {
+  let answer, max = Number.MIN_SAFE_INTEGER;
+  for (let x of arr) {
+    let sum = 0, tmp = x;
+    while (tmp) {
+      sum += (tmp % 10);
+      tmp = Math.floor(tmp / 10);
+    }
+    if (sum > max) {
+      max = sum;
+      answer = x;
+    }
+    else if (sum === max) {
+      if (x > answer) answer = x;
+    }
+  }
+  return answer;
+}
+
+// function solution(n, arr) {
+//   let maxSum = 0;
+//   let maxNum = 0;
+
+//   for (let i = 0; i < arr.length; i++) {
+//     const digit = arr[i] + '';
+//     let sum = 0;
+//     for (let j = 0; j < digit.length; j++) {
+//       sum += parseInt(digit[j]);
+//       if (maxSum < sum) {
+//         maxSum = sum;
+//         maxNum = arr[i];
+//       }
+
+//       if (maxSum === sum && maxNum < arr[i]) {
+//         maxNum = arr[i];
+//       }
+//     }
+//   }
+
+//   return maxNum;
+// }
+
+function solution(n, arr) { // reduce 사용
   let maxSum = 0;
   let maxNum = 0;
 
   for (let i = 0; i < arr.length; i++) {
     const digit = arr[i] + '';
-    let sum = 0;
-    for (let j = 0; j < digit.length; j++) {
-      sum += parseInt(digit[j]);
-      if (maxSum < sum) {
-        maxSum = sum;
-        maxNum = arr[i];
-      }
+    const sum = [...digit].reduce((a, b) => a + parseInt(b), 0);
+    if (maxSum < sum) {
+      maxSum = sum;
+      maxNum = arr[i];
+    }
 
-      if (maxSum === sum && maxNum < arr[i]) {
-        maxNum = arr[i];
-      }
+    if (maxSum === sum && maxNum < arr[i]) {
+      maxNum = arr[i];
     }
   }
 
